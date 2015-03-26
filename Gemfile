@@ -28,3 +28,10 @@ group :development do
   gem "pry-rails"
 end
 
+group :production do
+  gem 'rails_12factor'
+  gem 'pg'
+end
+
+ruby "2.2.1"
+
