@@ -1,6 +1,5 @@
 class MimosController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
-  before_action :set_mimo, only: [:show, :edit, :update, :destroy]
 
   # GET /mimos
   # GET /mimos.json
@@ -60,7 +59,7 @@ class MimosController < ApplicationController
   # DELETE /mimos/1.json
   def destroy
     @mimo = current_user.mimos.find(params[:id])
-
+    @mimo.photo = nil
     @mimo.destroy
     respond_to do |format|
       format.html { redirect_to mimos_url, notice: 'Mimo was successfully destroyed.' }
@@ -72,6 +71,6 @@ class MimosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def mimo_params
-      params.require(:mimo).permit(:title, :case, :description, :race, :size, :city, :country, :state, :street, :coordinates, :name, :color1, :color2, :gender, :age)
+      params.require(:mimo).permit(:title, :case, :description, :race, :size, :city, :country, :state, :street, :coordinates, :name, :color1, :color2, :gender, :age, :photo)
     end
 end

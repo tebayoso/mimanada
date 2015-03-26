@@ -15,6 +15,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails_admin'
 gem 'devise'
 
+gem "paperclip", "~> 4.2"
+
 group :development, :test do
   gem 'quiet_assets'
   gem 'web-console', '~> 2.0'

@@ -1,4 +1,4 @@
-<%= form_for(@mimo) do |f| %>
+<%= form_for @mimo, :html => { :multipart => true } do |f| %>
   <% if @mimo.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@mimo.errors.count, "error") %> prohibited this mimo from being saved:</h2>
@@ -70,6 +70,10 @@
   <div class="field">
     <%= f.label :age %><br>
     <%= f.number_field :age %>
+  </div>
+  <div class="field">
+    <%= f.label :photo %><br>
+    <%= f.file_field :photo %>
   </div>
   <div class="actions">
     <%= f.submit %>
