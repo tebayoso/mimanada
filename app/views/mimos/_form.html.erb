@@ -28,8 +28,12 @@
     <%= f.text_field :race %>
   </div>
   <div class="field">
-    <%= f.label :size %><br>
-    <%= f.number_field :size %>
+    <%= f.radio_button(:size, "small") %>
+    <%= f.label(:small, "Pequeño") %>
+    <%= f.radio_button(:size, "medium") %>
+    <%= f.label(:medium, "Medio") %>
+    <%= f.radio_button(:size, "big") %>
+    <%= f.label(:medium, "Grande") %>
   </div>
   <div class="field">
     <%= f.label :city %><br>
