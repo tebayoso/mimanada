@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20150326150710) do
   create_table "mimos", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "title"
-    t.string   "case"
+    t.integer  "mimo_case"
     t.string   "description"
     t.string   "race"
     t.integer  "size"

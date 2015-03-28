@@ -3,7 +3,7 @@ class CreateMimos < ActiveRecord::Migration
     create_table :mimos do |t|
       t.references :user
       t.string :title
-      t.string :case
+      t.integer :mimo_case
       t.string :description
       t.string :race
       t.integer :size

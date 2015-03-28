@@ -1,55 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Mimos</h1>
+<h1>Mimos</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Case</th>
-      <th>Description</th>
-      <th>Race</th>
-      <th>Size</th>
-      <th>City</th>
-      <th>Country</th>
-      <th>State</th>
-      <th>Street</th>
-      <th>Coordinates</th>
-      <th>Name</th>
-      <th>Color1</th>
-      <th>Color2</th>
-      <th>Gender</th>
-      <th>Age</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<% @mimos.each do |m| %>
+  <div class="col-lg-6">
+    <%= render partial: 'mimo_partial', locals: {mimo: m} %>
+  </div>
+<% end %>
 
-  <tbody>
-    <% @mimos.each do |mimo| %>
-      <tr>
-        <td><%= mimo.title %></td>
-        <td><%= mimo.case %></td>
-        <td><%= mimo.description %></td>
-        <td><%= mimo.race %></td>
-        <td><%= mimo.size %></td>
-        <td><%= mimo.city %></td>
-        <td><%= mimo.country %></td>
-        <td><%= mimo.state %></td>
-        <td><%= mimo.street %></td>
-        <td><%= mimo.coordinates %></td>
-        <td><%= mimo.name %></td>
-        <td><%= mimo.color1 %></td>
-        <td><%= mimo.color2 %></td>
-        <td><%= mimo.gender %></td>
-        <td><%= mimo.age %></td>
-        <td><%= link_to 'Show', mimo %></td>
-        <td><%= link_to 'Edit', edit_mimo_path(mimo) %></td>
-        <td><%= link_to 'Destroy', mimo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Mimo', new_mimo_path %>
