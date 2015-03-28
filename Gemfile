@@ -18,7 +18,6 @@ gem 'devise'
 gem 'chosen-rails'
 gem 'jquery-ui-rails'
 gem 'devise-bootstrap-views'
-gem 'gmaps-autocomplete-rails'
 
 gem "paperclip", "~> 4.2"
 

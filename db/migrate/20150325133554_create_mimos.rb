@@ -7,14 +7,12 @@ class CreateMimos < ActiveRecord::Migration
       t.string :description
       t.string :race
       t.integer :size
-      t.string :city
-      t.string :country
-      t.string :state
-      t.string :street
+      t.string :address
       t.string :coordinates
       t.string :name
       t.string :color1
       t.string :color2
+      t.string :color3
       t.string :gender
       t.integer :age
 

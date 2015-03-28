@@ -13,11 +13,11 @@
     <% end %>
 
     <div class="form-group">
-      <%= f.label :title %>
+      <%= f.label :title, "Titulo" %>
       <%= f.text_field :title, class: "form-control" %>
     </div>
     <div class="form-group">
-      <%= f.label :mimo_case %>
+      <%= f.label :mimo_case, "Caso" %>
       <%= f.select  :mimo_case,
                     [["Adopción", "adoption"]],
                     { include_blank: false},
@@ -25,63 +25,11 @@
       %>
     </div>
     <div class="form-group">
-      <%= f.label :description %>
+      <%= f.label :description, "Comentarios" %>
       <%= f.text_area :description, class: "form-control" %>
     </div>
     <div class="form-group">
-      <%= f.label :race %>
-      <%= f.select  :race,
-                    DOG_BREEDS,
-                    { include_blank: true },
-                    { class: 'chosen-select' }
-      %>
-    </div>
-    <div class="form-group">
-      <%= f.label :size %>
-      <%= f.select  :size,
-                    [["Pequeño", "small"], ["Mediano", "medium"], ["Grande", "big"]],
-                    { include_blank: false},
-                    { class: 'chosen-select' }
-      %>
-    </div>
-    <div class="form-group">
-      <%= f.label :city %>
-      <%= f.text_field :city, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :country %>
-      <%= f.text_field :country, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :state %>
-      <%= f.text_field :state, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :street %>
-      <%= f.text_field :street, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :coordinates %>
-      <%= f.text_field :coordinates, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :name %>
-      <%= f.text_field :name, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :color1 %>
-      <%= f.text_field :color1, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :color2 %>
-      <%= f.text_field :color2, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :gender %>
-      <%= f.text_field :gender, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :age %>
+      <%= f.label :age, "Edad aproximada" %>
       <%= f.select  :age,
                     [["Cachorro", "puppy"], ["1-3", "1-3"], ["4-6", "4-6"],["Mas de 6", "6+"]],
                     { include_blank: false},
@@ -89,7 +37,51 @@
       %>
     </div>
     <div class="form-group">
-      <%= f.label :photo %>
+      <%= f.label :race, "Raza" %>
+      <%= f.select  :race,
+                    DOG_BREEDS,
+                    { include_blank: true },
+                    { class: 'chosen-select' }
+      %>
+    </div>
+    <div class="form-group">
+      <%= f.label :size, "Tamaño" %>
+      <%= f.select  :size,
+                    [["Pequeño", "small"], ["Mediano", "medium"], ["Grande", "big"]],
+                    { include_blank: false},
+                    { class: 'chosen-select' }
+      %>
+    </div>
+    <div class="form-group">
+      <%= f.label :address, "Una direccion aproximada" %>
+      <%= f.text_field :address, class: "form-control", id: 'gmaps-address' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :coordinates %>
+      <%= f.text_field :coordinates, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :name, "Nombre/s" %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :color1, "Color principal" %>
+      <%= f.text_field :color1, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :color2, "Color secundario" %>
+      <%= f.text_field :color2, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :color2, "Tercer color" %>
+      <%= f.text_field :color2, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :gender, "Sexo" %>
+      <%= f.text_field :gender, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :photo, "Una foto siempre ayuda" %>
       <%= f.file_field :photo %>
     </div>
     <div class="actions">
@@ -97,3 +89,10 @@
     </div>
   <% end %>
 </div>
+<script>
+  var input = document.getElementById('gmaps-address');
+  var autocomplete = new google.maps.places.Autocomplete(input, {});
+  google.maps.event.addListener(autocomplete, 'place_changed', function(){
+       var place = autocomplete.getPlace();
+  });
+</script>
