@@ -28,7 +28,6 @@ group :development, :test do
 end
 
 group :development do
-  gem 'sqlite3'
   gem "better_errors"
   gem "pry-rails"
 end
