@@ -16,7 +16,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails_admin'
 gem 'devise'
 gem 'chosen-rails'
+gem 'jquery-ui-rails'
 gem 'devise-bootstrap-views'
+gem 'jquery-ui-bootstrap-rails'
+gem 'gmaps-autocomplete-rails'
 
 gem "paperclip", "~> 4.2"
 
