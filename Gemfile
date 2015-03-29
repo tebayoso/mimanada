@@ -20,6 +20,7 @@ gem 'jquery-ui-rails'
 gem 'devise-bootstrap-views'
 gem 'bootstrap-kaminari-views'
 gem "font-awesome-rails"
+gem 'devise-i18n'
 
 gem "paperclip", "~> 4.2"
 
