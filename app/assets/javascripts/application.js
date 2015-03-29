@@ -14,6 +14,7 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery-ui
+//= require bootstrap
 //= require bootstrap-sprockets
 //= require chosen-jquery
 //= require chosen

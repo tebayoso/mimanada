@@ -1,40 +1,47 @@
-<div class="col-lg-6 col-lg-offset-3">
-  <%= form_for @mimo, html: { multipart: true, class: "" } do |f| %>
-    <% if @mimo.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@mimo.errors.count, "error") %> prohibited this mimo from being saved:</h2>
+<%= form_for @mimo, html: { multipart: true, class: "" } do |f| %>
+  <% if @mimo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mimo.errors.count, "error") %> prohibited this mimo from being saved:</h2>
 
-        <ul>
-        <% @mimo.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-
+      <ul>
+      <% @mimo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="col-lg-6 col-md-12">
     <div class="form-group">
-      <%= f.label :title, "Titulo" %>
+      <%= f.label :title, "Titulo", class: "control-label" %>
       <%= f.text_field :title, class: "form-control" %>
     </div>
-    <div class="form-group">
-      <%= f.label :mimo_case, "Caso" %>
-      <%= f.select  :mimo_case,
-                    [["Adopción", "adoption"]],
-                    { include_blank: false},
-                    { class: 'chosen-select' }
-      %>
+    <div class="row">
+      <div class="form-group col-md-6">
+        <%= f.label :mimo_case, "Caso" %>
+        <%= f.select  :mimo_case,
+                      [["Adopción", "adoption"],
+                       ["Perdido", "lost"],
+                       ["Transito", "foster"],
+                       ["Encontrado", "found"]],
+                      { include_blank: false},
+                      { class: 'chosen-select' }
+        %>
+      </div>
+      <div class="form-group col-md-6">
+        <%= f.label :age, "Edad aproximada" %>
+        <%= f.select  :age,
+                      [["Cachorro", "puppy"],
+                       ["1-3", "1-3"],
+                       ["4-6", "4-6"],
+                       ["Mas de 6", "6+"]],
+                      { include_blank: false},
+                      { class: 'chosen-select' }
+        %>
+      </div>
     </div>
     <div class="form-group">
       <%= f.label :description, "Comentarios" %>
       <%= f.text_area :description, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :age, "Edad aproximada" %>
-      <%= f.select  :age,
-                    [["Cachorro", "puppy"], ["1-3", "1-3"], ["4-6", "4-6"],["Mas de 6", "6+"]],
-                    { include_blank: false},
-                    { class: 'chosen-select' }
-      %>
     </div>
     <div class="form-group">
       <%= f.label :race, "Raza" %>
@@ -44,51 +51,61 @@
                     { class: 'chosen-select' }
       %>
     </div>
-    <div class="form-group">
-      <%= f.label :size, "Tamaño" %>
-      <%= f.select  :size,
-                    [["Pequeño", "small"], ["Mediano", "medium"], ["Grande", "big"]],
-                    { include_blank: false},
-                    { class: 'chosen-select' }
-      %>
+    <div class="row">
+      <div class="form-group col-md-6">
+        <%= f.label :name, "Nombre/s" %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+      <div class="form-group col-md-6">
+        <%= f.label :size, "Tamaño" %>
+        <%= f.select  :size,
+                      [["Pequeño", "small"],
+                       ["Mediano", "medium"],
+                       ["Grande", "big"]],
+                      { include_blank: false},
+                      { class: 'chosen-select' }
+        %>
+      </div>
     </div>
+  </div>
+  <div class="col-lg-6 col-md-12">
     <div class="form-group">
       <%= f.label :address, "Una direccion aproximada" %>
       <%= f.text_field :address, class: "form-control", id: 'gmaps-address' %>
     </div>
-    <div class="form-group">
-      <%= f.label :coordinates %>
-      <%= f.text_field :coordinates, class: "form-control" %>
+    <div class="row">
+      <div class="form-group col-md-4">
+        <%= f.label :color1, "Color principal" %>
+        <%= f.text_field :color1, class: "form-control" %>
+      </div>
+      <div class="form-group col-md-4">
+        <%= f.label :color2, "Color secundario" %>
+        <%= f.text_field :color2, class: "form-control" %>
+      </div>
+      <div class="form-group col-md-4">
+        <%= f.label :color2, "Tercer color" %>
+        <%= f.text_field :color2, class: "form-control" %>
+      </div>
     </div>
-    <div class="form-group">
-      <%= f.label :name, "Nombre/s" %>
-      <%= f.text_field :name, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :color1, "Color principal" %>
-      <%= f.text_field :color1, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :color2, "Color secundario" %>
-      <%= f.text_field :color2, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :color2, "Tercer color" %>
-      <%= f.text_field :color2, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :gender, "Sexo" %>
-      <%= f.text_field :gender, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :photo, "Una foto siempre ayuda" %>
-      <%= f.file_field :photo %>
+    <div class="row">
+      <div class="form-group col-md-6">
+        <%= f.label :gender, "Sexo" %><br>
+        <%= f.radio_button :gender, 'male', :checked => true %>
+        <%= f.label :gender, 'Masculino' %>
+        <%= f.radio_button :gender, 'female' %>
+        <%= f.label :gender, 'Femenino' %>
+      </div>
+      <div class="form-group col-md-6">
+        <%= f.label :photo, "Una foto siempre ayuda" %>
+        <%= f.file_field :photo %>
+      </div>
     </div>
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit "Publicar", class: "btn btn-lg btn-success" %>
+      <%= link_to "Cancelar", root_path, class: "btn btn-lg btn-danger" %>
     </div>
-  <% end %>
-</div>
+  </div>
+<% end %>
 <script>
   var input = document.getElementById('gmaps-address');
   var autocomplete = new google.maps.places.Autocomplete(input, {});

@@ -13,7 +13,9 @@
  *= require devise_bootstrap_views
  */
 
-@import "bootstrap";
 @import "bootstrap-sprockets";
-@import "bootstrap-united";
+@import "bootstrap";
 @import "chosen-bootstrap";
+@import "custom";
+@import "bootstrap-social";
+@import "font-awesome";

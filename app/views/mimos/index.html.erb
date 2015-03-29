@@ -1,10 +1,20 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-lg-12">
+    <p id="notice"><%= notice %></p>
 
-<h1>Mimos</h1>
+    <h1>Mimos</h1>
 
-<% @mimos.each do |m| %>
-  <div class="col-lg-6">
-    <%= render partial: 'mimo_partial', locals: {mimo: m} %>
+
+    <div class="row">
+      <% @mimos.each do |m| %>
+        <%= render partial: 'mimo_partial', locals: {mimo: m} %>
+      <% end %>
+    </div>
+    <div class="row">
+      <div class="text-center">
+        <%= paginate @mimos, theme: 'twitter-bootstrap-3' %>
+      </div>
+    </div>
   </div>
-<% end %>
+</div>
 

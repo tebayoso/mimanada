@@ -24,6 +24,7 @@
     <%= render partial: 'layouts/messages' if @messages %>
     <%= yield %>
   </div>
+  <%= render partial: 'layouts/footer'%>
   <script>
     var input = document.getElementById('gmaps-places');
     var autocomplete = new google.maps.places.Autocomplete(input, {types: ['(cities)']});

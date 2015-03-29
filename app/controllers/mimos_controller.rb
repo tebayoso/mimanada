@@ -4,7 +4,11 @@ class MimosController < ApplicationController
   # GET /mimos
   # GET /mimos.json
   def index
-    @mimos = Mimo.all
+    if params[:city].present?
+      @mimos = Mimo.where(address: nil)
+    else
+      @mimos = Mimo.all.page(params[:page]).per(6)
+    end
   end
 
   # GET /mimos/1
@@ -71,6 +75,7 @@ class MimosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def mimo_params
-      params.require(:mimo).permit(:title, :case, :description, :race, :size, :city, :country, :state, :street, :coordinates, :name, :color1, :color2, :gender, :age, :photo)
+      params.require(:mimo).permit(:title, :case, :description, :race, :size, :address,
+        :mimo_case, :coordinates, :name, :color1, :color2, :gender, :age, :photo)
     end
 end

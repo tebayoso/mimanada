@@ -18,6 +18,8 @@ gem 'devise'
 gem 'chosen-rails'
 gem 'jquery-ui-rails'
 gem 'devise-bootstrap-views'
+gem 'bootstrap-kaminari-views'
+gem "font-awesome-rails"
 
 gem "paperclip", "~> 4.2"
 

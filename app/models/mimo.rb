@@ -1,5 +1,7 @@
 class Mimo < ActiveRecord::Base
-  has_attached_file :photo, :styles => { :medium => "200x200>" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :photo,
+                    :styles => { :medium => "150x150>", :original => "400x400" },
+                    :default_url => ':style_missing.jpg'
   validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
 
   enum size: [ :small, :medium, :big ]

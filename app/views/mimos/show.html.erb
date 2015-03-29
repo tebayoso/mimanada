@@ -1,66 +1,61 @@
 <p id="notice"><%= notice %></p>
-<p>
-<%= image_tag @mimo.photo.url(:thumb) %>
-</p>
-<p>
-  <strong>Title:</strong>
-  <%= @mimo.title %>
-</p>
+<h1><%= @mimo.title %></h1>
+<div class="row">
+  <div class="col-lg-4 col-md-6 col-sm-12">
+    <p>
+      <%= image_tag @mimo.photo.url(:original), class: "img-responsive", alt: @mimo.title %>
+    </p>
+  </div>
+  <div class="col-lg-4 col-md-6 col-sm-12">
+    <p>
+      <strong>Caso:</strong>
+      <%= @mimo.mimo_case %>
+    </p>
 
-<p>
-  <strong>Case:</strong>
-  <%= @mimo.mimo_case %>
-</p>
+    <p>
+      <strong>Descripcion:</strong>
+      <%= @mimo.description %>
+    </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @mimo.description %>
-</p>
+    <p>
+      <strong>Raza:</strong>
+      <%= @mimo.race %>
+    </p>
 
-<p>
-  <strong>Race:</strong>
-  <%= @mimo.race %>
-</p>
+    <p>
+      <strong>Tamaño:</strong>
+      <%= @mimo.show_size %>
+    </p>
 
-<p>
-  <strong>Size:</strong>
-  <%= @mimo.show_size %>
-</p>
+    <p>
+      <strong>Dirección:</strong>
+      <%= @mimo.address %>
+    </p>
 
-<p>
-  <strong>Dirección:</strong>
-  <%= @mimo.address %>
-</p>
+    <p>
+      <strong>Nombre/s:</strong>
+      <%= @mimo.name %>
+    </p>
 
-<p>
-  <strong>Coordinates:</strong>
-  <%= @mimo.coordinates %>
-</p>
+    <p>
+      <strong>Color principal:</strong>
+      <%= @mimo.color1 %>
+    </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @mimo.name %>
-</p>
+    <p>
+      <strong>Color secundario:</strong>
+      <%= @mimo.color2 %>
+    </p>
 
-<p>
-  <strong>Color1:</strong>
-  <%= @mimo.color1 %>
-</p>
+    <p>
+      <strong>Sexo:</strong>
+      <%= @mimo.gender %>
+    </p>
 
-<p>
-  <strong>Color2:</strong>
-  <%= @mimo.color2 %>
-</p>
+    <p>
+      <strong>Edad aproximada:</strong>
+      <%= @mimo.age %>
+    </p>
+  </div>
+</div>
 
-<p>
-  <strong>Gender:</strong>
-  <%= @mimo.gender %>
-</p>
-
-<p>
-  <strong>Age:</strong>
-  <%= @mimo.age %>
-</p>
-
-<%= link_to 'Edit', edit_mimo_path(@mimo) %> |
-<%= link_to 'Back', mimos_path %>
