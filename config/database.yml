@@ -1,5 +1,5 @@
 development:
-  adapter: postgresql
+  adapter: mysql2
   encoding: unicode
   database: mimanada
   host: localhost
@@ -7,7 +7,7 @@ development:
   username: postgres
   password: password
 test:
-  adapter: postgresql
+  adapter: mysql2
   encoding: unicode
   database: mimanada_test
   host: localhost
@@ -16,10 +16,10 @@ test:
   password: password
 
 production:
-  adapter: postgresql
+  adapter: mysql2
   encoding: unicode
-  database: mimanada_dev
+  database: mimanada_prod
   host: localhost
   pool: 5
-  username: postgres
-  password: password
+  username: ENV['MIMANADA_DB_USER']
+  password: ENV['MIMANADA_DB_PWD']
