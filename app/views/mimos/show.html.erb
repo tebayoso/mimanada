@@ -1,12 +1,18 @@
 <p id="notice"><%= notice %></p>
 <h1><%= @mimo.title %></h1>
+<% if current_user.try(:mimos).include?(@mimo) %>
+  <%= link_to "Borrar", mimo_path(@mimo), method: 'delete', class: "btn btn-lg btn-danger pull-right", data: {confirm: 'Esto borrara el mimo. ¿Estas seguro?'} %>
+  <%= link_to "Editar", edit_mimo_path(@mimo), class: "btn btn-lg btn-info pull-right" %>
+  <%= link_to "¡Solucionado!", change_status_mimo_path(@mimo), method: 'put', class: "btn btn-lg btn-success pull-right", data: {confirm: 'Esto sacará el mimo de las busquedas, ¿estas seguro?'} %>
+<% end %>
+<h2 style="color: red"><%= @mimo.show_status %></h2>
 <div class="row">
-  <div class="col-lg-4 col-md-6 col-sm-12">
+  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
     <p>
       <%= image_tag @mimo.photo.url(:original), class: "img-responsive", alt: @mimo.title %>
     </p>
   </div>
-  <div class="col-lg-4 col-md-6 col-sm-12">
+  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
     <p>
       <strong>Caso:</strong>
       <%= @mimo.mimo_case %>

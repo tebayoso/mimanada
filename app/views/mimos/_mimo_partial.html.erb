@@ -1,24 +1,27 @@
-<div class="col-md-3 col-lg-3 portfolio-item">
-  <%= link_to mimo do %>
-    <%= image_tag mimo.photo.url(:medium), class: "img-responsive", alt: mimo.title %>
-  <% end %>
-  <h3>
-    <%= link_to mimo.title, mimo %>
-  </h3>
-  <%= truncate(mimo.description, length: 95) %>
-  <br>
-  <%= link_to mimo, class: "btn btn-primary bottom" do %>
-    Mas información <span class="glyphicon glyphicon-chevron-right"></span>
-  <% end %>
-  <div class="text-center bottom-buttons">
-    <a class="btn btn-social-icon btn-twitter">
-      <i class="fa fa-twitter"></i>
-    </a>
-    <a class="btn btn-social-icon btn-facebook">
-      <i class="fa fa-facebook"></i>
-    </a>
-    <a class="btn btn-social-icon btn-google-plus">
-      <i class="fa fa-google-plus"></i>
-    </a>
+<div class=" col-xs-12 col-sm-6 col-md-4 col-lg-3">
+  <div class="portfolio-item">
+    <%= link_to mimo do %>
+      <%= image_tag mimo.photo.url(:medium), class: "img-responsive", alt: mimo.title %>
+    <% end %>
+    <div class="bottom-align">
+      <h3><%= link_to mimo.title, mimo %></h3>
+      <p><%= truncate(mimo.description, length: 100) %></p>
+      <div class="info-button">
+        <%= link_to mimo, class: "btn btn-primary bottom" do %>
+          Mas información <span class="glyphicon glyphicon-chevron-right"></span>
+        <% end %>
+      </div>
+      <div class="social-buttons">
+        <a class="btn btn-social-icon btn-twitter" target="_blank" href=<%= twitter_share_url(mimo) %> >
+          <i class="fa fa-twitter"></i>
+        </a>
+        <a class="btn btn-social-icon btn-facebook" target="_blank" href=<%= facebook_share_url(mimo) %> >
+          <i class="fa fa-facebook"></i>
+        </a>
+        <a class="btn btn-social-icon btn-google-plus" target="_blank" href=<%= google_plus_share_url(mimo) %> >
+          <i class="fa fa-google-plus"></i>
+        </a>
+      </div>
+    </div>
   </div>
 </div>

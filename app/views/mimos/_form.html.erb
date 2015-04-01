@@ -87,6 +87,7 @@
         <%= f.text_field :color2, class: "form-control" %>
       </div>
     </div>
+    <br>
     <div class="row">
       <div class="form-group col-md-6">
         <%= f.label :gender, "Sexo" %><br>
@@ -100,9 +101,23 @@
         <%= f.file_field :photo %>
       </div>
     </div>
-    <div class="actions">
-      <%= f.submit "Publicar", class: "btn btn-lg btn-success" %>
-      <%= link_to "Cancelar", root_path, class: "btn btn-lg btn-danger" %>
+    <br>
+    <div class="row">
+      <div class="form-group col-md-6">
+          <%= f.label :status, "Estado del caso" %>
+          <%= f.select  :status,
+                        [["Seguimos buscando", "still"],
+                         ["Solucionado", "solved"]],
+                        { include_blank: false},
+                        { class: 'chosen-select' }
+          %>
+      </div>
+      <div class="form-group col-md-6">
+        <div class="actions">
+          <%= f.submit "Publicar", class: "btn btn-lg btn-success" %>
+          <%= link_to "Cancelar", root_path, class: "btn btn-lg btn-danger" %>
+        </div>
+      </div>
     </div>
   </div>
 <% end %>

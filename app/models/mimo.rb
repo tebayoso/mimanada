@@ -6,6 +6,7 @@ class Mimo < ActiveRecord::Base
 
   enum size: [ :small, :medium, :big ]
   enum mimo_case: [ :adoption, :lost, :found, :foster ]
+  enum status: [ :still, :solved ]
 
   belongs_to :user
 
@@ -30,6 +31,15 @@ class Mimo < ActiveRecord::Base
       "Encontrado"
     when "foster"
       "Acogida"
+    end
+  end
+
+  def show_status
+    case status
+    when "still"
+      "Aun buscando"
+    when "solved"
+      "Ya esta solucionado"
     end
   end
 end

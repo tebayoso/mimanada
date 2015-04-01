@@ -34,7 +34,7 @@ class MimosController < ApplicationController
 
     respond_to do |format|
       if @mimo.save
-        format.html { redirect_to @mimo, notice: 'Mimo was successfully created.' }
+        format.html { redirect_to @mimo, notice: '¡El Mimo se ha creado correctamente!' }
         format.json { render :show, status: :created, location: @mimo }
       else
         format.html { render :new }
@@ -50,7 +50,7 @@ class MimosController < ApplicationController
 
     respond_to do |format|
       if @mimo.update(mimo_params)
-        format.html { redirect_to @mimo, notice: 'Mimo was successfully updated.' }
+        format.html { redirect_to @mimo, notice: '¡El Mimo se ha actualizado correctamente!' }
         format.json { render :show, status: :ok, location: @mimo }
       else
         format.html { render :edit }
@@ -66,9 +66,14 @@ class MimosController < ApplicationController
     @mimo.photo = nil
     @mimo.destroy
     respond_to do |format|
-      format.html { redirect_to mimos_url, notice: 'Mimo was successfully destroyed.' }
+      format.html { redirect_to mimos_url, notice: '¡El mimo se ha borrado!' }
       format.json { head :no_content }
     end
+  end
+
+  def change_status
+    flash[:notice] = '¡Felicidades por solucionar el caso!'
+    redirect_to mimo_path(params[:id])
   end
 
   private
@@ -76,6 +81,6 @@ class MimosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def mimo_params
       params.require(:mimo).permit(:title, :case, :description, :race, :size, :address,
-        :mimo_case, :coordinates, :name, :color1, :color2, :gender, :age, :photo)
+        :mimo_case, :coordinates, :name, :color1, :color2, :gender, :age, :photo, :status)
     end
 end
