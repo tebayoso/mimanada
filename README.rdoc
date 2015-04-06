@@ -1,28 +1,63 @@
-== README
+# Mimanada
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+MiManada is a lost-found listing-board who will help people find his pet. Some of it's features are:
 
-Things you may want to cover:
+  - Geolocation (In progress)
+  - Bootstrap theme (lazy frontend skills)
+  - ImageMagick
 
-* Ruby version
+Feel free to contribute in any way you can. Or just send a message through the app contact page.
 
-* System dependencies
+### Version
+0.1-Beta
 
-* Configuration
+### Tech
 
-* Database creation
+MiManada uses (or plan to use) this beatufil open source techs:
 
-* Database initialization
+* MySql
+* [MailChimp] - a super fast port of Markdown to JavaScript.
+* [Twitter Bootstrap] - great UI boilerplate for modern web apps.
+* [Ruby On Rails 4] - Lattest is better.
+* [Ruby 2.2.1] - Stable stands for power.
+* ImageMagic - No alternative found.
+* [DigitalOcean] - Cheaper is the key.
+* [jQuery] - You know, no alternative.
 
-* How to run the test suite
+### Installation
 
-* Services (job queues, cache servers, search engines, etc.)
+Requirements:
+  - Ruby 2.2.1
+  - Bundler
+  - Git
+  - MySql
+  - ImageMagick
 
-* Deployment instructions
+```sh
+$ git clone [git-repo-url] mimanada
+$ cd mimanada
+$ bundle
+$ rake db:create
+$ rake db:migrate
+$ rails s
+```
 
-* ...
+### Todo's
 
+ - Write Tests
+ - Fix HomePage
+ - Fix Search by City
+ - Improve form-flow
+ - Contact Page
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+License
+----
+
+MIT
+
+[MailChimp]:http://mailchimp.com
+[Twitter Bootstrap]:http://getbootstrap.com
+[Ruby On Rails 4]:http://rubyonrails.org
+[Ruby 2.2.1]:https://www.ruby-lang.org
+[DigitalOcean]:https://www.digitalocean.com/?refcode=7e24dc1f37d2
+[jQuery]:https://jquery.com/
