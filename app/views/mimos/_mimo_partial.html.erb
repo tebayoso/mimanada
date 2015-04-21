@@ -4,7 +4,7 @@
       <%= image_tag mimo.photo.url(:medium), class: "img-responsive", alt: mimo.title %>
     <% end %>
     <div class="bottom-align">
-      <h3><%= link_to mimo.title, mimo %></h3>
+      <h5><strong><%= link_to mimo.title, mimo %></strong></h5>
       <p><%= truncate(mimo.description, length: 100) %></p>
       <div class="info-button">
         <%= link_to mimo, class: "btn btn-primary bottom" do %>
