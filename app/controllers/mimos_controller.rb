@@ -5,9 +5,9 @@ class MimosController < ApplicationController
   # GET /mimos.json
   def index
     if params[:address].present?
-      @mimos = Mimo.where(address: params[:address]).page(params[:page]).per(8)
+      @mimos = Mimo.where(address: params[:address]).page(params[:page]).per(12)
     else
-      @mimos = Mimo.all.page(params[:page]).per(8)
+      @mimos = Mimo.all.page(params[:page]).per(12)
     end
   end
 
