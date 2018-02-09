@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
+ruby '2.4.1'
 
-gem 'rails', '4.2.1'
-gem 'mysql2'
+gem 'rails', '~> 4.2'
+gem 'mysql2', "~> 0.3.13"
 gem 'bootstrap-sass'
 gem 'sass-rails', '~> 5.0.0'
 gem 'uglifier', '>= 1.3.0'
@@ -38,6 +39,3 @@ end
 group :production do
   gem 'rails_12factor'
 end
-
-ruby "2.2.1"
-
